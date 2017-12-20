@@ -24,7 +24,10 @@ export enum RequestType {
     DOCUMENT_CHANGED = 'documentChanged',
     GET_DETAILS = 'getDetails',
     GET_LATEST_VERSION = 'getLatestVersion',
-    GET_STRUCTURE = "getStructure"
+    GET_STRUCTURE = "getStructure",
+    EXECUTE_ACTION_BY_ID = "getExecuteContextActionByID",
+    EXECUTE_DETAILS_ACTION = "getExecuteDetailsAction",
+    UI_RESPONSE = "uiResponse"
 }
 
 export namespace RequestType {
@@ -42,7 +45,10 @@ export namespace RequestType {
             RequestType.DOCUMENT_CHANGED,
             RequestType.GET_DETAILS,
             RequestType.GET_LATEST_VERSION,
-            RequestType.GET_STRUCTURE
+            RequestType.GET_STRUCTURE,
+            RequestType.EXECUTE_ACTION_BY_ID,
+            RequestType.EXECUTE_DETAILS_ACTION,
+            RequestType.UI_RESPONSE
         ]
     }
 }
@@ -56,7 +62,10 @@ export enum ResponseType {
     REQUESTED_LATEST_VERSION = 'requestedLatestVersion',
     REQUESTED_STRUCTURE = 'requestedLatestVersion',
     REQUESTED_DETAIL_VALUE = 'requestedDetailValue',
-    REQUESTED_OFFSET_UPDATE = 'requestedGetSetContentAndOffset'
+    REQUESTED_OFFSET_UPDATE = 'requestedGetSetContentAndOffset',
+    REQUESTED_EXECUTE_ACTION_BY_ID = 'requestedExecuteContextActionByID',
+    REQUESTED_EXECUTE_DETAILS_ACTION = 'requestedExecuteDetailsAction',
+    UI_DATA = 'uiData'
 }
 
 export namespace ResponseType {
@@ -74,7 +83,10 @@ export namespace ResponseType {
             ResponseType.REQUESTED_LATEST_VERSION,
             ResponseType.REQUESTED_STRUCTURE,
             ResponseType.REQUESTED_DETAIL_VALUE,
-            ResponseType.REQUESTED_OFFSET_UPDATE
+            ResponseType.REQUESTED_OFFSET_UPDATE,
+            ResponseType.REQUESTED_EXECUTE_ACTION_BY_ID,
+            ResponseType.REQUESTED_EXECUTE_DETAILS_ACTION,
+            ResponseType.UI_DATA
         ]
     }
 }

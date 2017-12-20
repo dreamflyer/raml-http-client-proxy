@@ -99,6 +99,16 @@ export function onStructureReport(callback: (report: any) => void) {
     socketConnection.setupHandler(ResponseType.STRUCTURE_REPORT, callback);
 }
 
+export function onDisplayUi(callback: (data: any) => any) {
+    socketConnection.setupHandler(ResponseType.UI_DATA, (uiData) => {
+        var promise: Promise<any> = callback(uiData);
+
+        promise.then(uiResponse => {
+            socketConnection.send(RequestType.UI_RESPONSE, uiResponse);
+        });
+    });
+}
+
 export function setContent(content: string): void {
     socketConnection.send(RequestType.SET_CONTENT, content);
 }
@@ -139,6 +149,13 @@ export function getStructure(uri: string): Promise<any> {
     return socketConnection.send(RequestType.GET_STRUCTURE, {uri});
 }
 
+export function executeContextActionByID(path: string, actionID: string, position: number): Promise<any> {
+    return socketConnection.send(RequestType.EXECUTE_ACTION_BY_ID, {uri: path, actionID, position});
+}
+
+export function executeDetailsAction(path: string, actionID: string, position: number): Promise<any> {
+    return socketConnection.send(RequestType.EXECUTE_DETAILS_ACTION, {uri: path, actionID, position});
+}
 
 export function documentClosed(uri: string) {
     
